@@ -115,6 +115,7 @@ class Widget extends Component {
         }
       }
       storage.setItem(SESSION_NAME, JSON.stringify(localSession))
+      storage.setItem("test", "testing")
     }
     clearTimeout(this.tooltipTimeout);
     clearInterval(this.intervalId);
