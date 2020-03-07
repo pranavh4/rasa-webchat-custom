@@ -46,7 +46,7 @@ class Widget extends Component {
     this.onGoingMessageDelay = false;
     this.sendMessage = this.sendMessage.bind(this);
     this.intervalId = null;
-    this.eventListenerCleaner = () => {};
+    this.eventListenerCleaner = () => { };
   }
 
 
@@ -102,6 +102,19 @@ class Widget extends Component {
 
     if (socket) {
       socket.close();
+    }
+    let localSession = getLocalSession(storage, SESSION_NAME);
+    if (localSession) {
+      localSession = {
+        ...localSession,
+        conversation: [],
+        params: {
+          ...localSession.params,
+          isChatOpen: false,
+          initialized: false
+        }
+      }
+      storage.setItem(SESSION_NAME, JSON.stringify(localSession))
     }
     clearTimeout(this.tooltipTimeout);
     clearInterval(this.intervalId);
