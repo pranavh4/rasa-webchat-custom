@@ -6,16 +6,21 @@
   "plugins": [
     "transform-class-properties",
     "transform-object-rest-spread",
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "constants": "./src/constants.js",
-        "assets": "./assets",
-        "tests-mocks": "./mocks",
-        "actions": "./src/store/actions",
-        "helper": "./src/store/reducers/helper.js",
-        "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "constants": "./src/constants.js",
+          "assets": "./assets",
+          "tests-mocks": "./mocks",
+          "actions": "./src/store/actions",
+          "helper": "./src/store/reducers/helper.js",
+          "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
+        }
       }
-    }]
+    ]
   ]
 }
